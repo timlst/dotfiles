@@ -83,3 +83,10 @@ let vim_markdown_folding_disabled = 1
 " => XML section
 """"""""""""""""""""""""""""""
 au filetype xml set equalprg=xmllint\ --format\ -
+
+""""""""""""""""""""""""""""""
+" => NetSimLan section
+""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.nsl set filetype=netsimlan
+au BufNewFile,BufRead *.nslc set filetype=netsimlan
+

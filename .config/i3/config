@@ -133,7 +133,8 @@ for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
-
+for_window [class="java-lang-Thread" title="^NetSimLan.*"] floating enable
+# for_window [class="^Bitwarden$"] floating enable
 
 
 ### GENERAL CONFIGURATION ###
@@ -178,7 +179,9 @@ focus_follows_mouse no
 focus_on_window_activation focus
 
 #Enable rofi as dmenu alternative
-bindsym $mod+d exec --no-startup-id "rofi -modi window,drun,run,ssh -show drun"
+bindsym $mod+d exec --no-startup-id "rofi -show drun"
+#rofi window switching Alt+Tab
+bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -214,19 +217,25 @@ exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "sleep 30 && com.spotify.Client"
 
 #Thunderbird
-exec --no-startup-id "sleep 60 && thunderbird"
+exec --no-startup-id "sleep 30 && thunderbird"
 
 #Discord
-exec --no-startup-id "sleep 60 && discord"
+exec --no-startup-id "sleep 30 && discord-canary"
+# exec --no-startup-id "sleep 30 && discord"
 
 #Redshift
-exec --no-startup-id "redshift-gtk"
+# exec --no-startup-id "redshift-gtk"
 
 #Network manager
 exec --no-startup-id "NetworkManager"
 
 #Notification manger dunst
 exec --no-startup-id "dunst"
+
+#low battery popup
+exec --no-startup-id "i3-battery-popup -L 10 -l 5 -m 'Low battery' -n -t 2m"
+
+exec --no-startup-id "tlp start"
 
 ### CUSTOM KEYS ###
 #Panic buttom
@@ -256,6 +265,9 @@ bindsym $mod+P exec "thunar"
 
 #calculator
 bindsym $mod+K exec "speedcrunch"
+
+#disable bluetooth
+exec --no-startup-id "rfkill block bluetooth"
 
 ## SCREENSHOTS
 #screenshot by pressing printscreen, insert into clipboard

@@ -11,7 +11,6 @@ plugins=(
     ssh-agent
     themes
     zsh-autosuggestions
-    zsh_reload
     zsh-syntax-highlighting
 )
     
@@ -27,14 +26,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
-
-
 # ssh-agent agent-forwarding on
 zstyle ':completion:*' ignored-patterns '*.synctex.gz|*.aux|*.fdb_latexmk|*.fls'
 
 
 setopt no_autocd
-
+###############################
+#ALIASES
+###############################
 # alias visudo="sudoedit"
 alias venv="virtualenv"
 alias vi="vim"
@@ -42,18 +41,61 @@ alias now="date"
 alias icat="kitty +kitten icat"
 alias hist="history -D -E"
 alias googler="googler --url-handler=googler_urlhandler"
-alias newest="ls -t $1 | head -n1" 
 alias upbvpn="cd ~/Universität/vpn/; sudo openvpn upb.conf"
 alias neofetch="neofetch --backend kitty"
 alias snippets="vim ~/.vim/UltiSnips/"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-
-export HISTTIMEFORMAT="%F %T "
+alias sshgate=" sshpass -p 8PJdUmG.59uQXT9EUG ssh sshgate-upb"
+###############################
+#CUSTOM FUNCTIONS
+###############################
 
 oldest() {
     ls -tr $1 | head -n1
 }
+newest() {
+    ls -t $1 | head -n1
+}
+videolength() {
+    mediainfo $1 | grep -m 1 Duration
+}
+duplicatescreen() {
+    xrandr --output HDMI-A-0 --same-as eDP
+}
+secondscreen() {
+    xrandr --output HDMI-A-0 --right-of eDP
+}
+ldmres() {
+    systemctl restart lightdm.service
+}
+rand() {
+    if [[ $# -eq 2 ]]
+    then
+        echo $(($RANDOM%$2+$1))
+    elif [[ $# -eq 1 ]]
+    then
+        echo $(($RANDOM%$1+1))
+    else
+        echo "Insufficient arguments."
+    fi
+}
+
+###############################
+#ENVIROMENT
+###############################
+export HISTTIMEFORMAT="%F %T "
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
+export TerminalEmulator=i3-sensible-terminal
+
+###############################
+#custom functions
+###############################
+#
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export GHP="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"
+
+#the fuck?
 eval $(thefuck --alias)

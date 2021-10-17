@@ -9,19 +9,22 @@ Plug 'tpope/vim-commentary'
 " Plug 'valloric/youcompleteme', {  'do': './install.py' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-repeat'
-" Plug 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 Plug 'https://github.com/calincru/peaksea.vim'
 Plug 'sirver/ultisnips'
 Plug 'elzr/vim-json', { 'for' : 'json' }
 Plug 'tpope/vim-markdown', { 'for' : 'markdown' }
 Plug 'tpope/vim-sensible'
 Plug 'vim-scripts/mru.vim'
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', {'tag':'v1.6'}
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'dylanaraps/wal'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'morhetz/gruvbox'
+Plug 'itchyny/landscape.vim'
+" Plug 'https://github.com/tiststorm/netsimlan.vim'
+Plug '~/netsimlan.vim'
 
 call plug#end()
 
