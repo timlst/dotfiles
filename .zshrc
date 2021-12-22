@@ -94,8 +94,3 @@ export TerminalEmulator=i3-sensible-terminal
 #
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export GHP="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"
-
-#the fuck?
-eval $(thefuck --alias)
