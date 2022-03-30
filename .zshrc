@@ -4,6 +4,8 @@ plugins=(
     archlinux #pacman shortcuts 
     #autojump
     colored-man-pages
+    docker
+    docker-compose
     gpg-agent
     history-substring-search
     pip
@@ -41,11 +43,10 @@ alias now="date"
 alias icat="kitty +kitten icat"
 alias hist="history -D -E"
 alias googler="googler --url-handler=googler_urlhandler"
-alias upbvpn="cd ~/Universität/vpn/; sudo openvpn upb.conf"
 alias neofetch="neofetch --backend kitty"
 alias snippets="vim ~/.vim/UltiSnips/"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias sshgate=" sshpass -p 8PJdUmG.59uQXT9EUG ssh sshgate-upb"
+alias upbvpn="(cd ~/Universität/vpn/ && sudo openvpn upb.conf)"
 ###############################
 #CUSTOM FUNCTIONS
 ###############################

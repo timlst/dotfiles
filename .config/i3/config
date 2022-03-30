@@ -214,13 +214,13 @@ exec --no-startup-id "picom -b"
 exec --no-startup-id "xfce4-power-manager"
 
 #Spotify instance
-exec --no-startup-id "sleep 30 && com.spotify.Client"
+# exec --no-startup-id "com.spotify.Client"
 
 #Thunderbird
-exec --no-startup-id "sleep 30 && thunderbird"
+exec --no-startup-id "thunderbird"
 
 #Discord
-exec --no-startup-id "sleep 30 && discord-canary"
+exec --no-startup-id "discord-canary"
 # exec --no-startup-id "sleep 30 && discord"
 
 #Redshift

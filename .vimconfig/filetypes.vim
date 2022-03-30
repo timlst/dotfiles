@@ -89,4 +89,17 @@ au filetype xml set equalprg=xmllint\ --format\ -
 """"""""""""""""""""""""""""""
 au BufNewFile,BufRead *.nsl set filetype=netsimlan
 au BufNewFile,BufRead *.nslc set filetype=netsimlan
+"
+""""""""""""""""""""""""""""""
+" => YAML section
+""""""""""""""""""""""""""""""
+autocmd FileType yml setlocal ts=2 sts=2 sw=2
+
+""""""""""""""""""""""""""""""
+" => TOML section
+""""""""""""""""""""""""""""""
+autocmd FileType toml setlocal ts=2 sts=2 sw=2
+
+
+
 
