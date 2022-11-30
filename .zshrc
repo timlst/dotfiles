@@ -88,6 +88,8 @@ export HISTTIMEFORMAT="%F %T "
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export TerminalEmulator=i3-sensible-terminal
+export HOW_TOKEN=custom-textsynth-token-maybe-forward-but-this-costs-money-for-me-so-try-it-sparingly-03b0100604e5bf9f5b2915175be65386
+export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/share/gem/
 
 ###############################
 #custom functions

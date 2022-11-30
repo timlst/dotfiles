@@ -220,7 +220,8 @@ exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "thunderbird"
 
 #Discord
-exec --no-startup-id "discord-canary"
+# exec --no-startup-id "discord-canary"
+exec --no-startup-id "discord"
 # exec --no-startup-id "sleep 30 && discord"
 
 #Redshift
@@ -252,13 +253,16 @@ bindsym $mod+F11 exec --no-startup-id "playerctl next --player=spotify"
 bindsym $mod+Pause exec --no-startup-id "playerctl play-pause --player=spotify"
 
 #Brightness controls
-bindsym XF86MonBrightnessDown exec "light -U 5"
-bindsym XF86MonBrightnessUp exec "light -A 5"
+bindsym XF86MonBrightnessDown exec "brightnessctl s 5%-"
+bindsym XF86MonBrightnessUp exec "brightnessctl s +5%"
 
 #lock screen (fast)
 bindsym Control+Mod1+Delete exec betterlockscreen -l blur
 #lock screen (slow)
 bindsym Control+Mod1+Shift+Delete exec dm-tool lock
+
+bindsym $mod+N exec "variety -n"
+bindsym $mod+Shift+N exec "variety -p"
 
 #open File Explorer
 bindsym $mod+P exec "thunar"
