@@ -1,5 +1,6 @@
-zstyle :omz:plugins:ssh-agent agent-forwarding on
+# zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa
+
 plugins=(
     archlinux #pacman shortcuts 
     #autojump
@@ -30,14 +31,14 @@ fi
 
 # ssh-agent agent-forwarding on
 zstyle ':completion:*' ignored-patterns '*.synctex.gz|*.aux|*.fdb_latexmk|*.fls'
+# faster pasting?
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
 
 setopt no_autocd
 ###############################
 #ALIASES
 ###############################
-# alias visudo="sudoedit"
-alias venv="virtualenv"
 alias vi="vim"
 alias now="date"
 alias icat="kitty +kitten icat"
@@ -46,7 +47,6 @@ alias googler="googler --url-handler=googler_urlhandler"
 alias neofetch="neofetch --backend kitty"
 alias snippets="vim ~/.vim/UltiSnips/"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias upbvpn="(cd ~/Universität/vpn/ && sudo openvpn upb.conf)"
 ###############################
 #CUSTOM FUNCTIONS
 ###############################
@@ -57,29 +57,6 @@ oldest() {
 newest() {
     ls -t $1 | head -n1
 }
-videolength() {
-    mediainfo $1 | grep -m 1 Duration
-}
-duplicatescreen() {
-    xrandr --output HDMI-A-0 --same-as eDP
-}
-secondscreen() {
-    xrandr --output HDMI-A-0 --right-of eDP
-}
-ldmres() {
-    systemctl restart lightdm.service
-}
-rand() {
-    if [[ $# -eq 2 ]]
-    then
-        echo $(($RANDOM%$2+$1))
-    elif [[ $# -eq 1 ]]
-    then
-        echo $(($RANDOM%$1+1))
-    else
-        echo "Insufficient arguments."
-    fi
-}
 
 ###############################
 #ENVIROMENT
@@ -87,13 +64,23 @@ rand() {
 export HISTTIMEFORMAT="%F %T "
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
+export TERMINAL=/usr/bin/kitty
 export TerminalEmulator=i3-sensible-terminal
-export HOW_TOKEN=custom-textsynth-token-maybe-forward-but-this-costs-money-for-me-so-try-it-sparingly-03b0100604e5bf9f5b2915175be65386
-export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/share/gem/
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export PATH=$PATH:/usr/java/jre1.6.0_24/bin/
+export GOPATH=$HOME/go
+# export GOROOT=/usr/bin/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+export PATH=$PATH:$GOPATH
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+# export PATH=$PATH:$GOROOT/bin
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
 
-###############################
-#custom functions
-###############################
-#
+export PLANTUML_JAR="/usr/share/java/plantuml/plantuml.jar"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval $(thefuck --alias)
